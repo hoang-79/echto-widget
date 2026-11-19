@@ -1,0 +1,26 @@
+{
+    "name": "@echto/widget",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Echto-Widget: Web Component für Formulare, dazu ein Vue-Baustein. Ohne Cookies, ohne Speicher im Browser.",
+    "license": "UNLICENSED",
+    "files": [
+        "dist"
+    ],
+    "type": "module",
+    "sideEffects": true,
+    "main": "./dist/echto.js",
+    "module": "./dist/echto.js",
+    "exports": {
+        ".": "./dist/echto.js",
+        "./vue": "./dist/vue.js"
+    },
+    "peerDependencies": {
+        "vue": "^3.4.0"
+    },
+    "peerDependenciesMeta": {
+        "vue": {
+            "optional": true
+        }
+    }
+}
