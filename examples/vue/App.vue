@@ -35,8 +35,20 @@ async function send(event: Event): Promise<void> {
 <template>
     <form class="card" @submit.prevent="send">
         <small>Formular <code>kontakt-vue</code></small>
-        <label for="vue-name">Name</label>
-        <input id="vue-name" name="name" required />
+        <label for="vue-vorname">Vorname</label>
+        <input
+            id="vue-vorname"
+            name="vorname"
+            autocomplete="given-name"
+            required
+        />
+        <label for="vue-nachname">Nachname</label>
+        <input
+            id="vue-nachname"
+            name="nachname"
+            autocomplete="family-name"
+            required
+        />
         <label for="vue-email">E-Mail</label>
         <input id="vue-email" name="email" type="email" required />
         <label for="vue-nachricht">Nachricht</label>
