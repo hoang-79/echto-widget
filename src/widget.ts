@@ -412,15 +412,23 @@ export class EchtoWidget extends HTMLElement {
         this.counts = { keys: 0, pastes: 0, focus: 0, pointer: 0 };
     }
 
+    /**
+     * Name des Feldes für das Token: `echto-token`, oder beim Umstieg der Name des bisherigen Dienstes
+     * (`field="g-recaptcha-response"`), damit der Server der Kundin weiter dasselbe Feld liest (K-05).
+     */
+    private tokenName(): string {
+        return this.getAttribute('field') ?? TOKEN_FIELD;
+    }
+
     private tokenField(): HTMLInputElement {
         let field = this.querySelector<HTMLInputElement>(
-            `input[name="${TOKEN_FIELD}"]`,
+            `input[name="${CSS.escape(this.tokenName())}"]`,
         );
 
         if (!field) {
             field = document.createElement('input');
             field.type = 'hidden';
-            field.name = TOKEN_FIELD;
+            field.name = this.tokenName();
             this.append(field);
         }
 
@@ -428,7 +436,9 @@ export class EchtoWidget extends HTMLElement {
     }
 
     private clearToken(): void {
-        this.querySelector(`input[name="${TOKEN_FIELD}"]`)?.remove();
+        this.querySelector(
+            `input[name="${CSS.escape(this.tokenName())}"]`,
+        )?.remove();
     }
 
     /**

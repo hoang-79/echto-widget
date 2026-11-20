@@ -7,7 +7,7 @@ const root = import.meta.dirname;
 /**
  * Drei Bauarten:
  *  - ohne Angabe: das Widget als eine Datei für `<script src="…/widget/v1/echto.js">` (public/widget/v1)
- *  - `--mode package`: das npm-Paket mit Web Component und Vue-Baustein (packages/widget/dist)
+ *  - `--mode package`: das npm-Paket mit Web Component, Vue- und React-Baustein (packages/widget/dist)
  *  - `--mode demo`: das Vue-Beispiel der lokalen Beispiel-Kundin (demo/kundin/public/beispiele)
  */
 export default defineConfig(({ mode }) => {
@@ -21,10 +21,11 @@ export default defineConfig(({ mode }) => {
                     entry: {
                         echto: resolve(root, 'src/index.ts'),
                         vue: resolve(root, 'src/vue.ts'),
+                        react: resolve(root, 'src/react.ts'),
                     },
                     formats: ['es'],
                 },
-                rollupOptions: { external: ['vue'] },
+                rollupOptions: { external: ['vue', 'react'] },
             },
         };
     }
@@ -53,7 +54,7 @@ export default defineConfig(({ mode }) => {
             outDir: resolve(root, '../../public/widget/v1'),
             emptyOutDir: true,
             lib: {
-                entry: resolve(root, 'src/index.ts'),
+                entry: resolve(root, 'src/script.ts'),
                 formats: ['iife'],
                 name: 'Echto',
                 fileName: () => 'echto.js',

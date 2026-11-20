@@ -1,11 +1,31 @@
 {
     "name": "@echto/widget",
     "version": "0.1.0",
-    "private": true,
-    "description": "Echto-Widget: Web Component für Formulare, dazu ein Vue-Baustein. Ohne Cookies, ohne Speicher im Browser.",
-    "license": "UNLICENSED",
+    "description": "Echto-Widget: Web Component für Formulare, dazu Bausteine für Vue und React. Ohne Cookies, ohne Speicher im Browser.",
+    "keywords": [
+        "bot",
+        "captcha",
+        "datenschutz",
+        "formular",
+        "react",
+        "spam",
+        "vue",
+        "web-component"
+    ],
+    "homepage": "https://echto.ch",
+    "bugs": {
+        "url": "https://github.com/hoang-79/echto-widget/issues"
+    },
+    "license": "MIT",
+    "author": "Hoang Nguyen, Nguyen Development (https://nguyen-development.ch)",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hoang-79/echto-widget.git"
+    },
     "files": [
-        "dist"
+        "dist",
+        "README.md",
+        "LICENSE"
     ],
     "type": "module",
     "sideEffects": true,
@@ -13,12 +33,17 @@
     "module": "./dist/echto.js",
     "exports": {
         ".": "./dist/echto.js",
-        "./vue": "./dist/vue.js"
+        "./vue": "./dist/vue.js",
+        "./react": "./dist/react.js"
     },
     "peerDependencies": {
+        "react": ">=18.0.0",
         "vue": "^3.4.0"
     },
     "peerDependenciesMeta": {
+        "react": {
+            "optional": true
+        },
         "vue": {
             "optional": true
         }

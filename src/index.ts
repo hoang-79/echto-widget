@@ -13,3 +13,4 @@ if (
 
 export { EchtoWidget };
 export { HONEYPOT_FIELD, TOKEN_FIELD } from './widget';
+export { adoptForeignMarkup } from './compat';
